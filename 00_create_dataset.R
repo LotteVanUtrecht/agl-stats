@@ -87,7 +87,7 @@ all_matches <- all_matches %>%
   relocate(MatchCode,Format,Week,Time,Player,Result,n_matches,n_wins,n_losses,last_match,Score) %>% 
   mutate(
     weeks_in_league = if_else(Format %in% c("DBL","ELD","SET","SIR","NEp","XLR","CH3"),3,6),
-    team_league = if_else(Format %in% c("DBL","SET","NEp","CH3"),3,6)
+    team_league = if_else(Format %in% c("DBL","SET","NEp","CH3"),T,F)
   ) %>% 
   mutate(
     Player = case_when(Player == "Cody-Rayce M-G" ~ "Cody-Rayce MG",
