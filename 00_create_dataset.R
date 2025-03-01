@@ -79,7 +79,7 @@ all_matches <- all_matches %>%
   mutate(n_wins=1:n(),
          n_losses=1:n()) %>% 
   mutate(n_wins=if_else(Result=="Win",n_wins,n_matches-n_losses),
-         n_losses=if_else(Result=="Win",n_losses,n_matches-n_wins)) %>% 
+         n_losses=if_else(Result=="Loss",n_losses,n_matches-n_wins)) %>% 
   ungroup()
 
 #finishing touches
@@ -88,6 +88,13 @@ all_matches <- all_matches %>%
   mutate(
     weeks_in_league = if_else(Format %in% c("DBL","ELD","SET","SIR","NEp","XLR","CH3"),3,6),
     team_league = if_else(Format %in% c("DBL","SET","NEp","CH3"),3,6)
+  ) %>% 
+  mutate(
+    Player = case_when(Player == "Cody-Rayce M-G" ~ "Cody-Rayce MG",
+                       Player == "Cody-Rayce M" ~ "Cody-Rayce MG",
+                       Player == "Lotte P" ~ "Lotte",
+                       .default = Player)
   )
 
 write_csv(all_matches,"all_matches.csv")
+
