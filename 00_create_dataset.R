@@ -1,4 +1,3 @@
-install.packages("tidyverse")
 library(tidyverse)
 
 #download data 
@@ -45,7 +44,7 @@ all_matches <- all_matches %>%
          Format=factor(Format,levels=unique(Format))) %>%  #this puts the formats in chronological order
   select(-Result)
   
-formats <- levels(all_matches$Format)
+formats <- all_matches$Format %>% unique() #make formats a factor vector
 
 #add weeks and match code
 all_matches <- all_matches %>% 
