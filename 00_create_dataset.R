@@ -89,3 +89,5 @@ all_matches <- all_matches %>%
     weeks_in_league = if_else(Format %in% c("DBL","ELD","SET","SIR","NEp","XLR","CH3"),3,6),
     team_league = if_else(Format %in% c("DBL","SET","NEp","CH3"),3,6)
   )
+
+write_csv(all_matches,"all_matches.csv")
