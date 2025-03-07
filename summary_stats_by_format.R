@@ -17,4 +17,4 @@ summary_stats %>%
   coord_cartesian(ylim=c(0.45,0.57)) +
   geom_abline(intercept=0.5,slope=0,linetype=2)
   
-ggsave(path="Plots/",filename = "2-0s.png",width=1150,length=450,units="px")
+ggsave(path="Plots/",filename = "2-0s.png",width=1150,height=450,units="px")
