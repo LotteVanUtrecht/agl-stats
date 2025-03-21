@@ -2,6 +2,8 @@
 
 #create win rates for each player
 
+all_matches <- read_csv("all_matches.csv")
+
 win_rates <- all_matches %>% 
   filter(Format %in% c("KTK","MKM","OTJ","MH3")) %>% 
   group_by(Player) %>% 
@@ -24,11 +26,11 @@ BLB_players <- all_matches %>%
 points <- data.frame(Week=rep(1:6,rep(5,6)),
                      Rank=rep(1:5,6),
                      Points=c(
-                       25,15,10,5,0, #Week 1 points
-                       30,20,10,5,0, #Week 2 points
-                       40,30,20,10,0, #Week 3 points
-                       50,30,20,10,0, #Week 4 points
-                       50,30,20,10,0, #Week 5 points
+                       25,20,15,10,5, #Week 1 points
+                       30,24,18,12,6, #Week 2 points
+                       35,28,21,14,7, #Week 3 points
+                       40,32,24,16,8, #Week 4 points
+                       40,32,24,16,8, #Week 5 points
                        0,0,0,0,0 #Week 6 points
                      ))
 
