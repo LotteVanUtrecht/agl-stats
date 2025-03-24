@@ -14,3 +14,4 @@ get_pbs <- function(data=all_matches){
       arrange(desc(n_wins))
     
     return(PBs)}
+PBs <- get_pbs()

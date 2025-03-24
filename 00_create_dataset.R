@@ -94,6 +94,8 @@ all_matches <- all_matches %>%
                        Player == "Cody-Rayce M" ~ "Cody-Rayce MG",
                        Player == "Jessie K" ~ "Jess K",
                        Player == "Jessica K" ~ "Jess K",
+                       Player == "Tomas B" ~ "Tomás B",
+                       Player == "Dewitt K" ~ "DeWitt K",
                        .default = Player)
   )
 

@@ -1,4 +1,5 @@
 library("spatstat")
+library("pmledecon")
 
 all_matches <- read_csv("all_matches.csv",col_types = "cfiTffiiilcil")
 
@@ -22,8 +23,13 @@ first_league_results <- first_league_results %>%
 #mean first player league performance is 0.4275739
 #sd in first player league performance is 0.1488202
 
-prior <- density(first_league_results$win_rate, kernel="biweight")
+posterior_first_league <- density(first_league_results$win_rate, kernel="biweight",from=0,to=1,n=201)
 
+prior <- pmledecon(first_league_results$win_rate,
+                   error=list("Normal",0,est_true_variance),
+                   supp=seq(0,1,by=0.005),
+                   bsz=20,
+                   subid=F)
 
 first_league_results %>% 
   ggplot(aes(x=win_rate)) + 

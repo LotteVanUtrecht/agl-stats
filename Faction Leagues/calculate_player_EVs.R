@@ -14,9 +14,9 @@ get_player_ev <- function(distribution){
   }
   
   
-  player_EV <- league_winrates 
-  %>% sapply(EV) 
-  %>% mean()
+  player_EV <- league_winrates %>% 
+  sapply(EV) %>% 
+  mean()
   
   return(player_EV)
   
