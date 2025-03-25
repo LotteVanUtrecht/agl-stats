@@ -1,3 +1,5 @@
+all_matches <- read_csv("all_matches.csv",col_types = "cfiTffiiilcil")
+formats <- levels(all_matches$Format)
 colors <- character(length(formats))
 names(colors) <- formats
 
