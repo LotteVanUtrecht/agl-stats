@@ -1,6 +1,6 @@
 #continued from here: https://docs.google.com/spreadsheets/d/1t2svbvisHgW7WJqNvWMBk2vakHfmg8cOXWf6iF6IrIY
 
-DFT_clans <- read_csv("Faction Leagues/TDM Simulation on DFT - Download.csv",col_names = c("Player","HistoricalWinRate","Clan"))
+DFT_clans <- read_csv("Faction Leagues/Archive/TDM Simulation on DFT - Drafting 2.0.csv",col_names = c("Player","HistoricalWinRate","Clan"))
 
 
 DFT_matches <- all_matches %>% 
@@ -29,3 +29,4 @@ DFT_points <- DFT_matches %>%
   arrange(desc(win_rate)) %>% 
   mutate(Rank=1:5) %>% 
   left_join(points,by = join_by(Week, Rank))
+
