@@ -7,13 +7,13 @@ all_results <- all_matches %>%
          value=n_wins-n_losses)
 
 prolific_results <- all_results %>% 
-  filter(Format %in% c("KTK","MKM",'OTJ','MH3','BLB','DSK','FDN','PIO')) %>% 
+  filter(Format %in% c("KTK","MKM",'OTJ','MH3','BLB','DSK','FDN','PIO','DFT')) %>% 
   filter(n_matches>5) %>% 
   group_by(Player) %>% 
   mutate(n=n()) %>% 
-  filter(n==8) %>% 
+  filter(n==9) %>% 
   summarise(mean=mean(win_rate),
             var=var(win_rate),
             normalitypval=shapiro.test(win_rate)[["p.value"]])
 
-est_true_variance <- mean(prolific_results$var * 9/8)
+est_true_variance <- mean(prolific_results$var * 10/9)

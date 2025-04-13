@@ -18,3 +18,17 @@ summary_stats %>%
   geom_abline(intercept=0.5,slope=0,linetype=2)
   
 ggsave(path="Plots/",filename = "2-0s.png",width=1150,height=450,units="px")
+
+players_by_league <- all_matches %>% 
+  group_by(Format) %>% 
+  summarise(n=n_distinct(Player)) #%>% 
+#filter(Format %in% c("KHM","STX","MID","VOW","NEO","SNC","DMU","BRO","ONE","MOM","LTR","WOE","LCI","MKM","OTJ","MH3","BLB","DSK","FDN","DFT"))
+
+players_by_league %>% 
+  ggplot(aes(x=Format,y=n,fill=Format)) +
+  geom_col() +
+  theme_minimal() +
+  theme(legend.position="none") +
+  scale_fill_manual(values=colors) +
+  ylab("# players (matches played>0)") +
+  ggtitle("Number of players by format (set releases only)")
