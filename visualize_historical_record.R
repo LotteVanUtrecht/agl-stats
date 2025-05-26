@@ -1,4 +1,5 @@
-
+source("calculate_top8_cutoffs.R")
+source("colors.R")
 
 
 
@@ -8,6 +9,7 @@ visualize_league_history <- function(player){
   player_matches <- all_matches %>% 
     filter(Player==player,
            weeks_in_league==6)
+  
   
   for (format in unique(player_matches$Format)){
     player_matches <- player_matches %>% 

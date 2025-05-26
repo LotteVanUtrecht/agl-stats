@@ -1,4 +1,4 @@
-top8_cutoffs <- data.frame(Format=all_matches$Format %>% unique,cutoff=numeric(35))
+top8_cutoffs <- data.frame(Format=all_matches$Format %>% unique,cutoff=numeric(length(all_matches$Format %>% unique())))
 
 for (format in top8_cutoffs$Format){
   places <- all_matches %>% 
@@ -16,4 +16,4 @@ for (format in top8_cutoffs$Format){
 
 all_matches <- all_matches %>% 
   left_join(top8_cutoffs)
-rm(format,formats,places,top8_cutoffs)
+rm(format,formats,places)
